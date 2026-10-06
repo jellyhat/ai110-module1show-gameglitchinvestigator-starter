@@ -14,9 +14,9 @@ Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+Enter does not work|Enter would be the same as submit for each guess |Nothing happened |none | |
+|The hints were the opposote |The hints should be accurate based on the guess and the answer |The hints were in reverse | none|
+|Non valid inputs used an attempt |It should just say that its a wrong attempt and not increment your attempts |It did infact take your attempts |seen in console log as put in the array of attempts |
 
 ---
 
