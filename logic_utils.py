@@ -8,7 +8,7 @@ ATTEMPT_LIMITS = {
     "Hard": 5,
 }
 
-
+#FIX: Refactored logic into logic_utils.py using agent mode
 def get_range_for_difficulty(difficulty: str) -> Tuple[int, int]:
     """Return (low, high) inclusive range for a given difficulty."""
     if difficulty == "Easy":
@@ -19,12 +19,12 @@ def get_range_for_difficulty(difficulty: str) -> Tuple[int, int]:
         return 1, 50
     return 1, 100
 
-
+#FIX: Refactored logic into logic_utils.py using agent mode
 def get_attempt_limit(difficulty: str) -> int:
     """Return the number of allowed guesses for a difficulty."""
     return ATTEMPT_LIMITS[difficulty]
 
-
+#FIX: Refactored logic into logic_utils.py using agent mode
 def generate_secret(low: int, high: int) -> int:
     """Choose a secret number from the inclusive range."""
     return random.randint(low, high)
@@ -40,7 +40,7 @@ def parse_guess(raw: Optional[str]) -> Tuple[bool, Optional[int], Optional[str]]
     except ValueError:
         return False, None, "That is not a whole number."
 
-
+#FIX: moved logic here and displays correctly what the user must do now
 def check_guess(guess: int, secret: int) -> Tuple[str, str]:
     """Compare a guess with the secret and return its outcome and feedback."""
     if guess == secret:
@@ -50,6 +50,7 @@ def check_guess(guess: int, secret: int) -> Tuple[str, str]:
     return "Too Low", "📈 Go HIGHER!"
 
 
+#FIX: moved here and also fixed it so that would correctly display what the user needed via ai agent
 def update_score(current_score: int, outcome: str, attempt_number: int) -> int:
     """Update score based on outcome and attempt number."""
     if outcome == "Win":

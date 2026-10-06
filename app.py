@@ -27,6 +27,7 @@ low, high = get_range_for_difficulty(difficulty)
 st.sidebar.caption(f"Range: {low} to {high}")
 st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 
+#FIX: i did not like how the game would change difficulty while you were in game and ai fixed so it would reset if you changed the difficulty
 difficulty_changed = (
     "difficulty" in st.session_state
     and st.session_state.difficulty != difficulty
@@ -68,6 +69,7 @@ with st.expander("Developer Debug Info"):
     st.write("Difficulty:", difficulty)
     st.write("History:", st.session_state.history)
 
+#FIX: added a form for the user to input their guess to make the enter key actually work
 with st.form("guess_form"):
     raw_guess = st.text_input(
         "Enter your guess:",
@@ -104,6 +106,7 @@ if st.session_state.status != "playing":
 if submit:
     ok, guess_int, err = parse_guess(raw_guess)
 
+    #FIX: parse the guess and ensure it's valid before proceeding, before it would also take an attempt per wrong answer
     if not ok:
         st.error(err)
     else:
