@@ -25,19 +25,25 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [x] Describe the game's purpose.
+
+The game's purpose is to take a user's guess and help them get closer to the 'secret' number generated randomly. The user should be getting hints whether they need to guess a higher or lower number before they run out of attempts (Based on difficulty) and lose the game. The game also logs their points based on their guesses.
+- [x] Detail which bugs you found.
+
+I found the hints were given in an incorrect way, it told the user the opposite things, and it used attempts for non valid attempts (not explicitly a bug but i wanted to fix this). It would also not update on enter immediately despite showing that you could use the enter key. 
+- [x] Explain what fixes you applied.
+
+Fixed the logic and ui display on the hints that were incorrect. In addition, did not let the user change the difficulty in the middle of the game without changing gamestate, now it restarts a new game. It also moved the input into a streamlit form. 
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User may change difficulty setting on left but game starts on Normal difficulty with 8 attempts to guess a number from 1 - 100.
+2. User can enter a guess in the text input box, they put 88.
+3. User can press enter or press a submit guess button below the input. The UI shows that the guess is too low (displays Go LOWER!). Attempt was logged and it shows attempts left : 7
+4. User enters a new number, 44 and submits guess. The UI displays Go HIGHER and attempt increments.
+5. User enters 43 and submits guess. Balloons fly on screen, UI displays it was Correct and another display shows that the user won and their final score (50).
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
